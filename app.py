@@ -5,6 +5,8 @@ import json
 app = Flask(__name__)
 cascPath = "/Users/vibhav/Workspace_8_17/CV_flask/Webcam-Face-Detect/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
+
+'''
 @app.route('/',methods=["GET"])
 def homepage():
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
@@ -25,6 +27,7 @@ def homepage():
     <h3> data {data} </h3>
     <br><br>
     """.format(time=the_time,data=x2,d2=x)
+'''
 
 @app.route('/sample',methods=["GET","POST"])
 def return_str():
@@ -38,11 +41,13 @@ def return_str():
         if int(str(datetime.now())[-8]) > 6:
             return jsonify("33333")
 
-@app.route('/hi',methods=["GET","POST"])
+
+
+@app.route('/jsstream',methods=["GET","POST"])
 def hi2():
     return render_template("index.html")
 
-@app.route("/stream",methods=["GET","POST"])
+@app.route("/",methods=["GET","POST"])
 def streamer():
     camera=cv2.VideoCapture(0)
     def gen():
