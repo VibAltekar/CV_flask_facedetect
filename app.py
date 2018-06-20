@@ -3,7 +3,7 @@ import cv2
 from datetime import datetime
 import json
 app = Flask(__name__)
-cascPath = "/Users/vibhav/Workspace_8_17/CV_flask/Webcam-Face-Detect/haarcascade_frontalface_default.xml"
+cascPath = "./haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 '''
